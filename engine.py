@@ -9,6 +9,8 @@ from execute_job import execute_job
 
 def engine():
     _pull()
+    if not os.path.exists('jobs/projects'):
+        os.makedirs('jobs/projects')
     for project_name in os.listdir('jobs/projects'):
         for submitted_job_name in os.listdir(f'jobs/projects/{project_name}/submitted'):
             if submitted_job_name.endswith('.yaml'):
